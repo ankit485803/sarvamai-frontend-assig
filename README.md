@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# Sarvam AI Frontend Intern Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Objective
 
-Currently, two official plugins are available:
+This project is built as part of the **Frontend Intern Assignment** for Sarvam AI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The goal is to design and implement a **browser-based Inference Playground** and a **Model Output Diff Viewer** for enterprise engineers. The system simulates a developer portal where users can test AI model inputs, view streaming outputs, and compare results across model versions.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Project Overview
 
-## Expanding the ESLint configuration
+The application focuses on building a modern frontend experience with the following capabilities:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Part A — Inference Playground
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A React + TypeScript-based playground that allows users to:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Input prompts using **text or audio**
+- Toggle between input modes
+- Receive **streaming model responses (token-by-token)**
+- View real-time metrics:
+  - Token count
+  - Tokens per second (TPS)
+- Handle errors gracefully during streaming:
+  - Network failures
+  - Timeouts
+  - Interrupted streams
+- Maintain accessibility standards (WCAG AA)
+- Ensure full keyboard navigation support
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Part B — Model Output Diff View
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+A comparison tool that allows users to:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Compare outputs from two different model versions
+- Highlight **token-level differences**
+- Build a custom diffing algorithm (no external diff libraries used)
+
+The system also includes an explanation of:
+- Diffing algorithm approach
+- Time complexity
+- Comparison with other approaches (LCS, Myers diff, etc.)
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- TypeScript
+- Vite
+- React Media Recorder (for audio input)
+- Fetch API + ReadableStream (for streaming responses)
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repository and run the project locally:
+
+```bash
+git clone https://github.com/ankit485803/sarvamai-frontend-assig
+cd sarvamai-frontend-assig
+npm install
+npm run dev
